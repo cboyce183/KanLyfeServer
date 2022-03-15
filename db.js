@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const initDB = () => {
-	const mongoAtlasUrl = 'mongodb+srv://cboyce183:Mdb22-csb93@base-cluster-1.6mcfp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+	const mongoAtlasUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@base-cluster-1.6mcfp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 	mongoose.connect(mongoAtlasUrl);
 }
 
