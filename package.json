@@ -2,24 +2,35 @@
 	"name": "KanLyfeServer",
 	"version": "1.0.0",
 	"description": "",
-	"main": "main.js",
+	"main": "main.ts",
 	"scripts": {
-		"start": "nodemon main.js",
-		"test": "mocha"
+		"start": "nodemon src/main.ts",
+		"test": "mocha",
+		"dev": "webpack --watch --mode=development",
+		"prod": "webpack --mode=production"
 	},
 	"dependencies": {
 		"chai": "^4.3.6",
 		"chai-http": "^4.3.0",
-		"dotenv": "^14.3.2",
-		"graphql": "^16.3.0",
+		"dotenv": "^16.0.0",
 		"koa": "^2.13.4",
 		"koa-graphql": "^0.12.0",
 		"koa-router": "^10.1.1",
 		"mocha": "^9.2.2",
 		"mongoose": "^6.2.6",
+		"node-polyfill-webpack-plugin": "^1.1.4",
+		"source-map-loader": "^3.0.1",
 		"supertest": "^6.2.2"
 	},
 	"devDependencies": {
-		"nodemon": "^2.0.15"
+		"@babel/core": "^7.17.7",
+		"babel-loader": "^8.2.3",
+		"graphql": "^16.3.0",
+		"nodemon": "^2.0.15",
+		"path": "^0.12.7",
+		"ts-loader": "^9.2.8",
+		"typescript": "^4.6.2",
+		"webpack": "^5.70.0",
+		"webpack-cli": "^4.9.2"
 	}
 }

@@ -1,10 +1,10 @@
 // Initialise instance of the app
-require('../main.js');
+require('../src/main.ts');
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
-const {Card} = require('../db.js');
+const {Card} = require('../src/db.js');
 
 const port = 8080;
 const testUrl = `http://localhost:${port}`;

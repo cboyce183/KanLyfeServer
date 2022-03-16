@@ -7,7 +7,7 @@ const {buildSchema} = require("graphql");
  * @constructor
  * @returns {obj} - the formatted graphql schema
  */
-const gqlCardSchema = buildSchema(`
+export const gqlCardSchema = buildSchema(`
 	type Query {
 		getCards(title: String, description: String, tags: String): [Card!]!
 	}
@@ -28,7 +28,3 @@ const gqlCardSchema = buildSchema(`
 		success: Boolean!
 	}
 `);
-
-module.exports = {
-	gqlCardSchema
-}

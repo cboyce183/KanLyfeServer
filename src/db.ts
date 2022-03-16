@@ -8,9 +8,10 @@ const { Schema } = mongoose;
  * @constructor
  * @param {boolean} test - A flag to point to a test database
  */
-const initDB = test => {
+export const initDB = function (test: boolean): string {
 	const mongoAtlasUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@base-cluster-1.6mcfp.mongodb.net/${test ? 'KanLyfe-test' : process.env.DB_NAME}?retryWrites=true&w=majority`;
 	mongoose.connect(mongoAtlasUrl);
+	return mongoAtlasUrl;
 }
 
 // The Card schema for mongo, more or less matches the gql query structure 1:1 for now
@@ -23,9 +24,4 @@ const cardSchema = new Schema({
 });
 
 // The card model
-const Card = mongoose.model('Card', cardSchema);
-
-module.exports = {
-	initDB,
-	Card
-}
+export const Card = mongoose.model('Card', cardSchema);
