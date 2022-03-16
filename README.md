@@ -11,12 +11,12 @@ Concept: A simple backend for a Kanban-style life organising tool. A personal di
 ----
 Example query structure
 
-```
+```gql
 {
   getCards(title: "Relax") {
     title
     description
-  	day
+    day
     time
     tags
   }
@@ -24,7 +24,7 @@ Example query structure
 
 ```
 returns
-```
+```json
 {
 	getCards: [
 		{
@@ -41,7 +41,7 @@ returns
 
 A mutation:
 
-```
+```gql
 mutation {
   postCard(title: "Visit Alice", description: "Visit my friend Alice", days: ["Monday"], time: [19], tags: ["Social"]) {
     title
@@ -54,7 +54,7 @@ mutation {
 
 ```
 creates and returns 
-```
+```json
 {
 	postCard: [
 		{
