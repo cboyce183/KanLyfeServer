@@ -1,5 +1,12 @@
 const {buildSchema} = require("graphql");
 
+
+/**
+ * gqlCardSchema
+ * The main schema describing how cards are queried and mutated. Also confirmation object bundled in for brevity.
+ * @constructor
+ * @returns {obj} - the formatted graphql schema
+ */
 const gqlCardSchema = buildSchema(`
 	type Query {
 		getCards(title: String, description: String, tags: String): [Card!]!

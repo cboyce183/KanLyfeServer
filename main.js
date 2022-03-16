@@ -8,8 +8,10 @@ const {cardResolver} = require('./gql/resolvers.js');
 require('dotenv').config()
 const port = process.env.port || 8080;
 
+// Initialise DB
 initDB();
 
+// Set up simple Koa server
 const app = new Koa();
 const router = new Router();
 
