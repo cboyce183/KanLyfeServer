@@ -6,6 +6,8 @@ If for some reason you want to copy or use anything here, go right ahead.
 
 You will need your own mongo atlas cluster and to point toward its in `db.js` if you wish to use this locally. Otherwise, just `npm i` on the root and `npm start`, you should be good to go. Tests are run from the root after installing and `npm test`.
 
+Concept: A simple backend for a Kanban-style life organising tool. A personal diary - dev style.
+
 ----
 Example query structure
 
