@@ -3,7 +3,7 @@ const Router = require("koa-router");
 const {graphqlHTTP} = require("koa-graphql");
 const {initDB} = require("./db.js");
 const {gqlCardSchema} = require("./gql/schema.js");
-const {getCardResolver, postCardResolver} = require('./gql/resolvers.js');
+const {cardResolver} = require('./gql/resolvers.js');
 
 require('dotenv').config()
 const port = process.env.port || 8080;
@@ -14,17 +14,10 @@ const app = new Koa();
 const router = new Router();
 
 // Route to handle basic queries
-router.all('/query', graphqlHTTP({
+router.all('/card', graphqlHTTP({
 	schema: gqlCardSchema,
 	graphiql: true,
-	rootValue: getCardResolver
-}))
-
-// Route to handle any mutations
-router.all('/mutate', graphqlHTTP({
-	schema: gqlCardSchema,
-	graphiql: true,
-	rootValue: postCardResolver
+	rootValue: cardResolver
 }))
 
 // Boilerplate setup
@@ -33,5 +26,7 @@ app.use(router.routes())
 
 app.listen(port, () => console.log(`listening at port ${port}`));
 
-// Lots to do, still super basic but functional
-// npm start from root directory, will need to change the 
+// This is NOT good, but will do while I get tests up and running properly
+if (!module.parent) {
+	module.exports = app.listen(port, () => console.log(`listening at port ${port}`));
+}

@@ -2,11 +2,13 @@ const {buildSchema} = require("graphql");
 
 const gqlCardSchema = buildSchema(`
 	type Query {
-		cards: [Card!]!
-		card(title: String): Card!
+		getCards(title: String, description: String, tags: String): [Card!]!
 	}
 	type Mutation {
-		card(title: String!, description: String, day: [String!]!, time: [Int!], tags: [String!]): Card!
+		postCard(title: String!, description: String, day: [String!]!, time: [Int!], tags: [String!]): Card!
+		patchCard(oldTitle: String!, newTitle: String!, description: String, day: [String!]!, time: [Int!], tags: [String!]): Card!
+		putCard(oldTitle: String!, newTitle: String!, description: String, day: [String!]!, time: [Int!], tags: [String!]): Card!
+		delCard(title: String!): Confirmation!
 	}
 	type Card {
 		title: String!
@@ -14,6 +16,9 @@ const gqlCardSchema = buildSchema(`
 		day: [String!]!
 		time: [Int!]
 		tags: [String!]
+	}
+	type Confirmation {
+		success: Boolean!
 	}
 `);
 
