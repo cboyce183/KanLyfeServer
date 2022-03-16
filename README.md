@@ -24,7 +24,7 @@ Example query structure
 
 ```
 returns
-```json
+```
 {
 	getCards: [
 		{
@@ -54,7 +54,7 @@ mutation {
 
 ```
 creates and returns 
-```json
+```
 {
 	postCard: [
 		{
